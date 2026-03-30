@@ -323,7 +323,6 @@ ul {
 
 .hero,
 .issue-section,
-.policy-section,
 .key-message {
   scroll-margin-top: 7rem;
 }
@@ -344,7 +343,6 @@ ul {
 .issue-section h2,
 .impact-group__header h2,
 .impact-overview h2,
-.policy-section h2,
 .key-message h2,
 .site-footer h2 {
   font-family: 'Fraunces', serif;
@@ -362,7 +360,6 @@ ul {
 .issue-section__intro,
 .impact-group__body,
 .impact-overview__body,
-.policy-section__body,
 .key-message p,
 .site-footer__note {
   max-width: 62ch;
@@ -373,23 +370,6 @@ ul {
 
 .hero__thesis {
   margin-top: 1.35rem;
-}
-
-.hero__chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.7rem;
-  margin-top: 1.6rem;
-}
-
-.hero__chips span {
-  padding: 0.45rem 0.8rem;
-  border: 1px solid rgba(122, 46, 46, 0.16);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.55);
-  color: var(--color-accent);
-  font-size: 0.95rem;
-  font-weight: 600;
 }
 
 .hero__actions {
@@ -475,7 +455,6 @@ ul {
 }
 
 .issue-section__layout,
-.policy-section__grid,
 .site-footer__grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -655,6 +634,13 @@ ul {
   grid-column: span 5;
 }
 
+.issue-section__visual--gallery {
+  display: grid;
+  gap: 0.85rem;
+  align-self: start;
+  padding: 1rem;
+}
+
 .issue-section--reverse .issue-section__content {
   order: 2;
 }
@@ -666,7 +652,6 @@ ul {
 .issue-section h2,
 .impact-group__header h2,
 .impact-overview h2,
-.policy-section h2,
 .key-message h2,
 .site-footer h2 {
   font-size: clamp(2rem, 4vw, 3.15rem);
@@ -725,7 +710,7 @@ ul {
     var(--color-surface);
 }
 
-.issue-section__visual img {
+.issue-section__visual > img {
   min-height: 100%;
   padding: 1.25rem;
   object-fit: contain;
@@ -734,16 +719,49 @@ ul {
     linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(240, 235, 226, 0.88));
 }
 
-.issue-section--positive .issue-section__visual img {
+.issue-section--positive .issue-section__visual > img {
   background:
     radial-gradient(circle at center, rgba(86, 98, 70, 0.12), transparent 55%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(241, 245, 236, 0.9));
 }
 
-.issue-section--negative .issue-section__visual img {
+.issue-section--negative .issue-section__visual > img {
   background:
     radial-gradient(circle at center, rgba(122, 46, 46, 0.1), transparent 55%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(245, 237, 233, 0.9));
+}
+
+#streaming-disruption .issue-section__layout {
+  align-items: start;
+}
+
+#streaming-disruption .issue-section__visual {
+  align-self: start;
+}
+
+#streaming-disruption .issue-section__visual > img {
+  min-height: 0;
+  padding: 0;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: transparent;
+}
+
+.issue-section__visual-item {
+  overflow: hidden;
+  border-radius: var(--radius-medium);
+  background:
+    radial-gradient(circle at center, rgba(122, 46, 46, 0.1), transparent 55%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(245, 237, 233, 0.9));
+}
+
+.issue-section__visual-item img {
+  width: 100%;
+  height: auto;
+  padding: 0;
+  aspect-ratio: auto;
+  object-fit: cover;
+  background: transparent;
 }
 
 .evidence-card {
@@ -821,55 +839,6 @@ ul {
 .evidence-card__link::after {
   content: '->';
   font-size: 0.92em;
-}
-
-.policy-section {
-  position: relative;
-  padding: 2.2rem;
-  border: 1px solid rgba(255, 255, 255, 0.75);
-  border-radius: 32px;
-  background:
-    radial-gradient(circle at top right, rgba(198, 169, 107, 0.18), transparent 30%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(251, 248, 243, 0.86));
-  box-shadow: var(--shadow-soft);
-}
-
-.policy-section__content {
-  grid-column: span 8;
-}
-
-.policy-section__aside {
-  grid-column: span 4;
-}
-
-.policy-section__body {
-  margin-top: 1rem;
-}
-
-.policy-section__points {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-  margin-top: 1.65rem;
-}
-
-.policy-point {
-  padding: 1rem 1rem 1.1rem;
-  border: 1px solid rgba(31, 31, 27, 0.08);
-  border-radius: var(--radius-medium);
-  background: rgba(255, 255, 255, 0.62);
-}
-
-.policy-point h3 {
-  font-family: 'Fraunces', serif;
-  font-size: 1.2rem;
-  color: var(--color-accent);
-}
-
-.policy-point p {
-  margin-top: 0.55rem;
-  line-height: 1.5;
-  color: rgba(31, 31, 27, 0.78);
 }
 
 .key-message__card {
@@ -983,8 +952,6 @@ ul {
   .hero__visual,
   .issue-section__content,
   .issue-section__visual,
-  .policy-section__content,
-  .policy-section__aside,
   .site-footer__grid > section:first-child,
   .site-footer__grid > section:last-child {
     grid-column: 1 / -1;
@@ -1003,9 +970,6 @@ ul {
     order: initial;
   }
 
-  .policy-section__points {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 768px) {
@@ -1043,7 +1007,6 @@ ul {
     justify-items: start;
   }
 
-  .policy-section,
   .site-footer,
   .key-message__card,
   .impact-group__header,
@@ -1059,7 +1022,6 @@ ul {
   .issue-section__intro,
   .impact-group__body,
   .impact-overview__body,
-  .policy-section__body,
   .key-message p,
   .site-footer__note {
     font-size: 1.05rem;

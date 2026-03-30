@@ -2,7 +2,6 @@
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
 import HeroSection from './components/HeroSection.vue';
 import IssueSection from './components/IssueSection.vue';
-import EvidenceCard from './components/EvidenceCard.vue';
 import KeyMessageSection from './components/KeyMessageSection.vue';
 import { useReveal } from './composables/useReveal';
 import pageContent from './content/pageContent';
@@ -41,8 +40,8 @@ const navItems = [
   {
     key: 'conclusion',
     label: 'Conclusion',
-    targetId: 'why-this-matters',
-    watchIds: ['why-this-matters', 'key-message'],
+    targetId: 'key-message',
+    watchIds: ['key-message'],
   },
 ] as const;
 
@@ -132,8 +131,8 @@ onBeforeUnmount(() => {
   window.removeEventListener('resize', handleViewportChange);
 });
 
-const { rootRef: policyRef, isVisible: policyVisible } = useReveal();
 const { rootRef: footerRef, isVisible: footerVisible } = useReveal();
+const showFooter = false;
 </script>
 
 <template>
@@ -147,7 +146,7 @@ const { rootRef: footerRef, isVisible: footerVisible } = useReveal();
         <a href="#overview">Overview</a>
         <a href="#positive-impacts">Positive</a>
         <a href="#negative-impacts">Negative</a>
-        <a href="#why-this-matters">Summary</a>
+        <a href="#key-message">Summary</a>
       </nav>
     </header>
 
@@ -221,6 +220,7 @@ const { rootRef: footerRef, isVisible: footerVisible } = useReveal();
               :bullets="issue.bullets"
               :image-src="issue.imageSrc"
               :image-alt="issue.imageAlt"
+              :image-gallery="issue.imageGallery"
               :evidence="issue.evidence"
               :tone="issue.tone"
               :placeholder="issue.placeholder"
@@ -248,43 +248,12 @@ const { rootRef: footerRef, isVisible: footerVisible } = useReveal();
               :bullets="issue.bullets"
               :image-src="issue.imageSrc"
               :image-alt="issue.imageAlt"
+              :image-gallery="issue.imageGallery"
               :evidence="issue.evidence"
               :tone="issue.tone"
               :placeholder="issue.placeholder"
               :reverse="issue.reverse"
             />
-          </section>
-
-          <section
-            id="why-this-matters"
-            ref="policyRef"
-            class="policy-section reveal-section"
-            :class="{ 'is-visible': policyVisible }"
-          >
-            <div class="policy-section__grid">
-              <div class="policy-section__content">
-                <p class="section-kicker">Why This Matters</p>
-                <h2>{{ pageContent.policyCallout.title }}</h2>
-                <p class="policy-section__body">
-                  {{ pageContent.policyCallout.body }}
-                </p>
-
-                <div class="policy-section__points">
-                  <article
-                    v-for="point in pageContent.policyCallout.points"
-                    :key="point.title"
-                    class="policy-point"
-                  >
-                    <h3>{{ point.title }}</h3>
-                    <p>{{ point.body }}</p>
-                  </article>
-                </div>
-              </div>
-
-              <aside class="policy-section__aside">
-                <EvidenceCard v-bind="pageContent.policyCallout.evidence" />
-              </aside>
-            </div>
           </section>
 
           <KeyMessageSection
@@ -323,6 +292,7 @@ const { rootRef: footerRef, isVisible: footerVisible } = useReveal();
     </div>
 
     <footer
+      v-if="showFooter"
       ref="footerRef"
       class="site-footer reveal-section"
       :class="{ 'is-visible': footerVisible }"

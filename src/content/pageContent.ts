@@ -1,9 +1,10 @@
 import cinemaAuditorium from '../../images/cinema_auditorium.jpg';
-import aiGenerated from '../../images/ai_generated.svg';
 import copyrightSymbol from '../../images/copyright_symbol.svg';
 import bigDataPrecision from '../../images/big_data_precision.svg';
 import virtualProduction from '../../images/virtual_production.svg';
-import streamingDisruption from '../../images/streaming_disruption.svg';
+import disneyCopyright from '../../images/DisneyCopyright.png';
+import disneyVsBytedance from '../../images/disneyvsbytedance.png';
+import netflixImage from '../../images/Netflix.jpg';
 
 export interface Evidence {
   label?: string;
@@ -31,21 +32,13 @@ export interface IssueContent {
   bullets: string[];
   imageSrc: string;
   imageAlt: string;
+  imageGallery?: Array<{
+    src: string;
+    alt: string;
+  }>;
   evidence: Evidence;
   placeholder?: boolean;
   reverse?: boolean;
-}
-
-export interface PolicyPoint {
-  title: string;
-  body: string;
-}
-
-export interface PolicyCallout {
-  title: string;
-  body: string;
-  points: PolicyPoint[];
-  evidence: Evidence;
 }
 
 export interface CreditLink {
@@ -67,7 +60,6 @@ export interface PageContent {
     }>;
   };
   issues: IssueContent[];
-  policyCallout: PolicyCallout;
   keyMessage: {
     title: string;
     body: string;
@@ -172,8 +164,18 @@ const pageContent: PageContent = {
         'AI-generated scenes and replicas can blur the line between official releases and fake content.',
         'Studios and performers lose control when likenesses and creative assets are copied at scale.',
       ],
-      imageSrc: aiGenerated,
-      imageAlt: 'An abstract AI-generated human profile made of layered shapes.',
+      imageSrc: disneyCopyright,
+      imageAlt: 'A copyright-themed Disney image.',
+      imageGallery: [
+        {
+          src: disneyCopyright,
+          alt: 'A Disney copyright image.',
+        },
+        {
+          src: disneyVsBytedance,
+          alt: 'A Disney versus ByteDance image.',
+        },
+      ],
       evidence: {
         label: 'News Example',
         source: 'Associated Press',
@@ -196,8 +198,8 @@ const pageContent: PageContent = {
         'The convenience of home viewing makes it harder for theaters to protect ticket sales, especially when audiences know films will reach streaming quickly.',
         'A constant flow of direct-to-streaming content weakens the cultural value of cinema by making films feel more disposable and less like destination events.',
       ],
-      imageSrc: streamingDisruption,
-      imageAlt: 'A stylized streaming screen pointing toward a couch while cinema seats sit below.',
+      imageSrc: netflixImage,
+      imageAlt: 'A Netflix screen inside a cinema auditorium.',
       evidence: {
         label: 'Draft Evidence',
         source: 'Current group draft',
@@ -207,33 +209,6 @@ const pageContent: PageContent = {
       reverse: true,
     },
   ],
-  policyCallout: {
-    title: 'What This Means for the Cinema Business',
-    body:
-      'The cinema industry now has to manage innovation in two directions at once. Data and digital production tools can improve operations and creativity, but AI and streaming can weaken both copyright control and theatrical exclusivity. The result is a business model that is more efficient than before, but also more fragile.',
-    points: [
-      {
-        title: 'Operational Gain',
-        body: 'Audience data and scheduling tools help cinemas target demand more accurately and make faster commercial decisions.',
-      },
-      {
-        title: 'Creative Efficiency',
-        body: 'Digital cameras, virtual production, and CGI expand what filmmakers can produce while reducing some practical barriers and inefficiencies.',
-      },
-      {
-        title: 'Structural Risk',
-        body: 'Streaming reduces exclusivity by pulling audiences toward home viewing and weakening the sense of cinema as a special destination event.',
-      },
-    ],
-    evidence: {
-      label: 'Policy Response',
-      source: 'Governor of California',
-      date: 'September 17, 2024',
-      summary:
-        'California signed laws to strengthen protection for performers\' digital likenesses, showing that governments now treat AI replication as a serious entertainment-industry problem.',
-      url: 'https://www.gov.ca.gov/2024/09/17/governor-newsom-signs-bills-to-protect-digital-likeness-of-performers/',
-    },
-  },
   keyMessage: {
     title: 'Digital Technology is Both an Opportunity and a Threat',
     body:
@@ -248,10 +223,6 @@ const pageContent: PageContent = {
         url: 'https://commons.wikimedia.org/wiki/File:Capitol_Auditorium.jpg',
       },
       {
-        label: 'AI-generated illustration',
-        url: 'https://commons.wikimedia.org/wiki/File:AI-generated.svg',
-      },
-      {
         label: 'Big data illustration',
         url: 'local: images/big_data_precision.svg',
       },
@@ -260,8 +231,16 @@ const pageContent: PageContent = {
         url: 'local: images/virtual_production.svg',
       },
       {
-        label: 'Streaming disruption illustration',
-        url: 'local: images/streaming_disruption.svg',
+        label: 'Netflix cinema image',
+        url: 'local: images/Netflix.jpg',
+      },
+      {
+        label: 'Disney copyright image',
+        url: 'local: images/DisneyCopyright.png',
+      },
+      {
+        label: 'Disney versus ByteDance image',
+        url: 'local: images/disneyvsbytedance.png',
       },
       {
         label: 'Copyright symbol',
@@ -280,10 +259,6 @@ const pageContent: PageContent = {
       {
         label: 'AP-NORC: streaming is overtaking theaters',
         url: 'https://www.ap.org/news-highlights/spotlights/2025/streaming-is-overtaking-theaters-for-movie-watchers-an-ap-norc-poll-finds/',
-      },
-      {
-        label: 'California governor: digital likeness protections',
-        url: 'https://www.gov.ca.gov/2024/09/17/governor-newsom-signs-bills-to-protect-digital-likeness-of-performers/',
       },
     ],
     note:

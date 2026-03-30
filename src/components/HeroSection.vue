@@ -22,19 +22,6 @@ const { rootRef, isVisible } = useReveal();
       <p class="section-kicker">{{ subtitle }}</p>
       <h1>{{ title }}</h1>
       <p class="hero__thesis">{{ thesis }}</p>
-
-      <div class="hero__chips" aria-label="core themes">
-        <span>Copyright</span>
-        <span>Actor Likeness</span>
-        <span>Audience Trust</span>
-      </div>
-
-      <div class="hero__actions">
-        <a class="button-link" href="#unauthorized-data">Explore the Evidence</a>
-        <p class="hero__supporting">
-          A short, source-backed argument built for a 5 to 8 minute class presentation.
-        </p>
-      </div>
     </div>
 
     <figure class="hero__visual image-panel">

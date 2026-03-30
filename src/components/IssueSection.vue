@@ -10,6 +10,10 @@ defineProps<{
   bullets: string[];
   imageSrc: string;
   imageAlt: string;
+  imageGallery?: Array<{
+    src: string;
+    alt: string;
+  }>;
   evidence: {
     source: string;
     date?: string;
@@ -58,8 +62,20 @@ const { rootRef, isVisible } = useReveal();
         <EvidenceCard v-else v-bind="evidence" />
       </div>
 
-      <figure class="issue-section__visual image-panel">
-        <img :src="imageSrc" :alt="imageAlt" />
+      <figure
+        class="issue-section__visual image-panel"
+        :class="{ 'issue-section__visual--gallery': imageGallery?.length }"
+      >
+        <template v-if="imageGallery?.length">
+          <div
+            v-for="image in imageGallery"
+            :key="image.src"
+            class="issue-section__visual-item"
+          >
+            <img :src="image.src" :alt="image.alt" />
+          </div>
+        </template>
+        <img v-else :src="imageSrc" :alt="imageAlt" />
       </figure>
     </div>
   </section>
