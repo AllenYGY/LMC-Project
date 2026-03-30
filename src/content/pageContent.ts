@@ -1,11 +1,11 @@
 import cinemaAuditorium from '../../images/cinema_auditorium.jpg';
 import copyrightSymbol from '../../images/copyright_symbol.svg';
-import bigDataPrecision from '../../images/big_data_precision.svg';
-import virtualProduction from '../../images/virtual_production.svg';
 import disneyCopyright from '../../images/DisneyCopyright.png';
 import disneyVsBytedance from '../../images/disneyvsbytedance.png';
 import netflixImage from '../../images/Netflix.jpg';
 import strangerThingsImage from '../../images/strangerthings.jpg';
+import wanderingEarth2Image from '../../images/WanderingEarth2.jpg';
+import positiveTwoImage from '../../images/Positive-2.jpg';
 
 export interface Evidence {
   label?: string;
@@ -29,6 +29,7 @@ export interface IssueContent {
   kicker: string;
   deck: string;
   title: string;
+  fullWidthHeader?: boolean;
   intro: string;
   bullets: string[];
   imageSrc: string;
@@ -38,6 +39,7 @@ export interface IssueContent {
     alt: string;
   }>;
   evidence: Evidence;
+  evidenceInContent?: boolean;
   placeholder?: boolean;
   reverse?: boolean;
 }
@@ -86,7 +88,7 @@ const pageContent: PageContent = {
   overview: {
     title: 'Four Impacts Now Define the Cinema Business',
     body:
-      'This version now includes two positive impacts and two negative impacts. Together, the four sections show how digital technology makes cinema more efficient and creative while also weakening theatrical exclusivity and copyright control.',
+      'This page now includes two positive impacts and two negative impacts. Together, the four sections show how digital technology makes cinema more efficient and creative while also weakening theatrical exclusivity and copyright control.',
     guidingQuestion:
       'How do digital tools make cinema more efficient and creative, while also weakening copyright control and theatrical exclusivity?',
     balanceCards: [
@@ -120,13 +122,13 @@ const pageContent: PageContent = {
         'Cinemas can adjust screening times, screen sizes, and even ticket prices in response to changing demand across different cities and time slots.',
         'Targeted marketing makes promotion more efficient by matching films with the audiences most likely to attend them.',
       ],
-      imageSrc: bigDataPrecision,
-      imageAlt: 'A stylized cinema screen with a chart rising above rows of seats.',
+      imageSrc: wanderingEarth2Image,
+      imageAlt: 'A Wandering Earth 2 cinema image.',
       evidence: {
-        label: 'Draft Evidence',
-        source: 'Current group draft',
+        label: 'Evidence',
+        source: 'Group research',
         summary:
-          'The draft cites examples such as The Wandering Earth 2 and Barbie to show how demand forecasting can increase screenings in strong markets and improve weekend sales. It also argues that data-driven scheduling can raise occupancy and reduce empty-screen waste.',
+          'The research cites films such as The Wandering Earth 2 and Barbie to show how demand forecasting can increase screenings in strong markets and improve weekend sales. It also argues that data-driven scheduling can raise occupancy and reduce empty-screen waste.',
       },
     },
     {
@@ -135,6 +137,7 @@ const pageContent: PageContent = {
       kicker: 'Production Shift',
       deck: 'Breaking with traditional film-making methods',
       title: 'Breaking Away from Traditional Film Production Methods',
+      fullWidthHeader: true,
       intro:
         'Digital technology has changed film production by reducing dependence on heavy equipment, large physical sets, and purely manual effects work. As a result, film-making has become more flexible, more efficient, and more open to creative experimentation.',
       bullets: [
@@ -142,14 +145,15 @@ const pageContent: PageContent = {
         'Virtual production and digital environments allow scenes to be built beyond the limits of physical locations and traditional set construction.',
         'Modern CGI and digital post-production let directors create more complex visual worlds and deliver a more immersive cinematic experience.',
       ],
-      imageSrc: virtualProduction,
-      imageAlt: 'A stylized LED volume and virtual production camera setup.',
+      imageSrc: positiveTwoImage,
+      imageAlt: 'A Positive 2 production image.',
       evidence: {
-        label: 'Draft Evidence',
-        source: 'Current group draft',
+        label: 'Evidence',
+        source: 'Group research',
         summary:
-          'The current draft uses Everything Everywhere All at Once to show how portable digital cameras support lower-budget production, and The Wandering Earth 2 to show how digital environments and CGI expand what filmmakers can stage on screen.',
+          'The research uses Everything Everywhere All at Once to show how portable digital cameras support lower-budget production, and The Wandering Earth 2 to show how digital environments and CGI expand what filmmakers can stage on screen.',
       },
+      evidenceInContent: true,
       reverse: true,
     },
     {
@@ -178,7 +182,7 @@ const pageContent: PageContent = {
         },
       ],
       evidence: {
-        label: 'News Example',
+        label: 'News',
         source: 'Associated Press',
         date: 'February 15, 2026',
         summary:
@@ -212,10 +216,10 @@ const pageContent: PageContent = {
         },
       ],
       evidence: {
-        label: 'Draft Evidence',
-        source: 'Current group draft',
+        label: 'Evidence',
+        source: 'Group research',
         summary:
-          'The draft uses Warner Bros.\' 2021 HBO Max strategy as an example of how shortened or simultaneous releases can damage theatrical revenue. It also argues that streaming platforms such as Netflix normalize at-home viewing and make it harder for theatrical releases to stand out as major cultural events.',
+          'The research uses Warner Bros.\' 2021 HBO Max strategy as a case showing how shortened or simultaneous releases can damage theatrical revenue. It also argues that streaming platforms such as Netflix normalize at-home viewing and make it harder for theatrical releases to stand out as major cultural events.',
       },
       reverse: true,
     },
@@ -234,12 +238,12 @@ const pageContent: PageContent = {
         url: 'https://commons.wikimedia.org/wiki/File:Capitol_Auditorium.jpg',
       },
       {
-        label: 'Big data illustration',
-        url: 'local: images/big_data_precision.svg',
+        label: 'Wandering Earth 2 image',
+        url: 'local: images/WanderingEarth2.jpg',
       },
       {
-        label: 'Virtual production illustration',
-        url: 'local: images/virtual_production.svg',
+        label: 'Positive 2 production image',
+        url: 'local: images/Positive-2.jpg',
       },
       {
         label: 'Netflix cinema image',
@@ -277,7 +281,7 @@ const pageContent: PageContent = {
       },
     ],
     note:
-      'This version now includes all four sections of the group topic: two positive impacts and two negative impacts on the cinema business.',
+      'This page now includes all four sections of the group topic: two positive impacts and two negative impacts on the cinema business.',
   },
 };
 
