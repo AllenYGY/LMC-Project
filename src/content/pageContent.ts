@@ -5,6 +5,7 @@ import virtualProduction from '../../images/virtual_production.svg';
 import disneyCopyright from '../../images/DisneyCopyright.png';
 import disneyVsBytedance from '../../images/disneyvsbytedance.png';
 import netflixImage from '../../images/Netflix.jpg';
+import strangerThingsImage from '../../images/strangerthings.jpg';
 
 export interface Evidence {
   label?: string;
@@ -200,6 +201,16 @@ const pageContent: PageContent = {
       ],
       imageSrc: netflixImage,
       imageAlt: 'A Netflix screen inside a cinema auditorium.',
+      imageGallery: [
+        {
+          src: netflixImage,
+          alt: 'A Netflix screen inside a cinema auditorium.',
+        },
+        {
+          src: strangerThingsImage,
+          alt: 'A Stranger Things streaming image.',
+        },
+      ],
       evidence: {
         label: 'Draft Evidence',
         source: 'Current group draft',
@@ -233,6 +244,10 @@ const pageContent: PageContent = {
       {
         label: 'Netflix cinema image',
         url: 'local: images/Netflix.jpg',
+      },
+      {
+        label: 'Stranger Things image',
+        url: 'local: images/strangerthings.jpg',
       },
       {
         label: 'Disney copyright image',
